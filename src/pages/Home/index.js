@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import '../../style.css';
 
 class Home extends Component{
@@ -26,12 +27,13 @@ class Home extends Component{
   render(){
     return(
       <div className="container"> 
-        {this.state.characters.map((item)=>{ // pega item por item do objeto e retorna 1 a 1
+        {this.state.characters.map((character)=>{ // pega item por item do objeto e retorna 1 a 1
+          console.log(character);
           return(
-            <article key={item.id} className="post">
-              <strong className="nome"> {item.name} </strong>
-              <img src={item.img} className="capa" />
-              <a className='botao' href='#'>Saiba mais</a>
+            <article key={character.char_id} className="post">
+              <strong className="nome"> {character.name} </strong>
+              <img src={character.img} className="capa" />
+              <Link  to={`/character/${character.char_id}`} className='botao'> Saiba mais </Link>
             </article>
           );
         })}
