@@ -38,15 +38,9 @@ class Home extends Component{
   // }
 
   render(){
-    console.log(this.state.quote);
-    // console.log(this.state.characters);
     return(
       <div className="container">
         <Quotes/>
-        {/* <article> 
-          <h1>{ this.state.quote.quote}</h1>
-          <h2>{ this.state.quote.author}</h2>
-        </article> */}
         {this.state.characters.map((character)=>{ // pega item por item do objeto e retorna 1 a 1
           return(
             <article key={character.char_id} className="post">

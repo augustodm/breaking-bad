@@ -18,16 +18,17 @@ class Character extends Component{
     api.get(`characters/${id}`).then(async response =>{
       const character = response.data[0];
       const quoteresponse = await api.get(`quote/random?author=${character.name}`);
+      const quote = quoteresponse.data[0];
       this.setState({
         character : character,
         char_name : character.name,
-        quote :  quoteresponse.data[0]
+        quote :  quote
       });
     });
-    // console.log(response.data);
   }
 
   render(){
+    // console.log(this.state.quote);
     return(
       <div className="charcontainer"> 
         <article key={this.state.character.char_id} className="charpost">
@@ -39,7 +40,7 @@ class Character extends Component{
           <a className="resume">Portrayed: {this.state.character.portrayed}</a>
           <a className="resume">Birthday: {this.state.character.birthday}</a>
           <a className="resume">Status: {this.state.character.status}</a>
-          <a className="resume">Quote: {this.state.quote.quote}</a>
+          <a className="resume">{ this.state.quote ? 'Quote: ' + this.state.quote.quote : ''}</a>
           </div>
         </article>
       </div>

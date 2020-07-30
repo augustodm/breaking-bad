@@ -167,11 +167,22 @@ footer{
 
 .homebutton{
   position: absolute;
-  left: 10px;
-  top: 5px;
-  font-weight: bolder;
-  font-size: 13px;
-  border-radius: 4px;
-  border: 1px;
-  background-color: grey;
+  width: 80px;
+  left: 5px;
+  top: 1px;
+  background: none;
+  border-radius: 5px;
+  border: 1px solid;
+  font-weight: bold;
+  display: flex;
+  text-decoration: none;
+  background: grey;
+  color: #06160b;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s;
+}
+.homebutton:hover{
+  color: white;
+  background-color: #06160b;
 }
